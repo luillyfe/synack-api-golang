@@ -25,10 +25,9 @@ func handleSearch(w http.ResponseWriter, r *http.Request) {
 			items = searchOnBing(query)
 		case "BOTH":
 			items = searchOnBoth(query)
-
 	}
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	w.Write(items)
+	_,_ = w.Write(items)
 }
